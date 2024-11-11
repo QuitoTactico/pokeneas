@@ -1,20 +1,19 @@
-const { getHome } = require('../controllers/homeController');
-const { getListen } = require('../controllers/appController');
-const { getAll, getInfo, getImageAndPhrase } = require('../controllers/pokeneasController');
-const { port } = require('./config');
+const config = require('./config');
+const appController = require('../controllers/appController');
+const homeController = require('../controllers/homeController');
+const pokeneasController = require('../controllers/pokeneasController');
 
 const setupRoutes = (app) => {
+    // app
+    app.listen(config.port, appController.getListen);
+
     // home
-    app.get('/', getHome);
+    app.get('/', homeController.getHome);
 
     // pokeneas
-    app.get('/all', getAll);
-    app.get('/info', getInfo);
-    app.get('/imageAndPhrase', getImageAndPhrase);
-
-
-    // app
-    app.listen(port, getListen);
+    app.get('/all', pokeneasController.getAll);
+    app.get('/info', pokeneasController.getInfo);
+    app.get('/imageAndPhrase', pokeneasController.getImageAndPhrase);
 };
 
 module.exports = { setupRoutes };
