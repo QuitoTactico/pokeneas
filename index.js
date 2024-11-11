@@ -1,6 +1,6 @@
-const { setupRoutes } = require('./app/routes');
+const routes = require('./app/routes');
 const express = require('express');
 
 const app = express();
 
-setupRoutes(app);
+routes.setupRoutes(app);

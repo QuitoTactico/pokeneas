@@ -1,12 +1,19 @@
-const { s3BucketUrl, containerId } = require('../config');
-const { pokeneas } = require('../db/pokeneas');
+const config = require('../app/config');
+const pokeneasService = require('../models/pokeneas');
+
+const getAll = (req, res) => {
+  const allPokeneas = pokeneasService.getAllPokeneas();
+  res.json({ pokeneas: allPokeneas, containerId: config.containerId });
+};
 
 const getInfo = (req, res) => {
-    res.send('info');
+  const pokeneaInfo = pokeneasService.getRandomPokeneaInfo();
+  res.json({ ...pokeneaInfo, containerId: config.containerId });
 };
 
-const getImage = (req, res) => {
-    res.send('image');
+const getImageAndPhrase = (req, res) => {
+  const pokeneaImageAndPhrase = pokeneasService.getRandomPokeneaImageAndPhrase();
+  res.json({ ...pokeneaImageAndPhrase, containerId: config.containerId });
 };
 
-module.exports = { getInfo, getImage };
+module.exports = { getInfo, getImageAndPhrase, getAll };

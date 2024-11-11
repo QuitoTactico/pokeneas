@@ -1,4 +1,4 @@
-const { port, s3BucketUrl } = require('../config');
+const { port, s3BucketUrl } = require('../app/config');
 
 const getListen = () => {
     console.log(`Example app listening on port ${port}`);
