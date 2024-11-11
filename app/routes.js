@@ -1,4 +1,5 @@
-const { getHome, getListen } = require('../controllers/controller');
+const { getHome } = require('../controllers/homeController');
+const { getListen } = require('../controllers/appController');
 
 const setupRoutes = (app, port, s3BucketUrl) => {
     app.get('/', getHome);
