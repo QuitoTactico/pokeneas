@@ -1,3 +1,4 @@
+const { s3BucketUrl, containerId } = require('../config');
 const { pokeneas } = require('../db/pokeneas');
 
 const getInfo = (req, res) => {
