@@ -1,5 +1,5 @@
 const getHome = (req, res) => {
-    res.send('Hello World!');
+    res.send('the routes are /info and /image');
 };
 
 module.exports = { getHome };
