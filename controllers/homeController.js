@@ -1,5 +1,11 @@
+const config = require('../app/config');
+
 const getHome = (req, res) => {
-    res.send('the routes are /info and /imageAndPhrase');
+    const viewData = {
+        baseUrl: config.baseUrl,
+        port: config.port
+    };
+    res.render('home/home', viewData);
 };
 
 module.exports = { getHome };
