@@ -1,0 +1,7 @@
+sudo docker swarm init
+docker swarm join-token manager
+(copiar comando y ejecutar en los otros nodos)
+sudo docker node ls
+sudo docker service create --name pokeneas-service --replicas 10 -p 80:80 quitotactico/pokeneas
+sudo docker service ls
+sudo docker service ps pokeneas-service
