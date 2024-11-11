@@ -1,12 +1,9 @@
-const express = require('express') 
-const app = express() 
-const port = 3000 
- 
-app.get('/', (req, res) => { 
-  res.send('Hello World!') 
-}) 
- 
-app.listen(port, () => { 
-  console.log(`Example app listening on port ${port}`) 
-}) 
- 
+require('dotenv').config();
+const { setupRoutes } = require('./routes');
+const express = require('express');
+
+const app = express();
+const s3BucketUrl = process.env.S3_BUCKET_IMAGES_URL;
+const port = process.env.PORT;
+
+setupRoutes(app, port, s3BucketUrl);
