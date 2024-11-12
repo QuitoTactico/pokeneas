@@ -1,21 +1,21 @@
 const config = require('../app/config');
 const pokeneasService = require('../models/pokeneas');
 
-const getAll = (req, res) => {
+const getAll = (_, res) => {
     const allPokeneas = pokeneasService.getAllPokeneas();
     res.json({ pokeneas: allPokeneas, containerId: config.containerId });
 };
 
-const getInfo = (req, res) => {
+const getInfo = (_, res) => {
     const pokeneaInfo = pokeneasService.getRandomPokeneaInfo();
     res.json({ ...pokeneaInfo, containerId: config.containerId });
 };
 
-const getImageAndPhrase = (req, res) => {
+const getImageAndPhrase = (_, res) => {
     const pokeneaImageAndPhrase = pokeneasService.getRandomPokeneaImageAndPhrase();
     const viewData = {
-        imagen: pokeneaImageAndPhrase.imagen,
-        fraseFilosofica: pokeneaImageAndPhrase.fraseFilosofica,
+        image: pokeneaImageAndPhrase.image,
+        philosophicalPhrase: pokeneaImageAndPhrase.philosophicalPhrase,
         containerId: config.containerId
     };
     res.render('pokeneas/imageAndPhrase', viewData);

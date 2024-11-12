@@ -1,6 +1,6 @@
 const config = require('../app/config');
 
-const getHome = (req, res) => {
+const getHome = (_, res) => {
     const viewData = {
         baseUrl: config.baseUrl,
         port: config.port
